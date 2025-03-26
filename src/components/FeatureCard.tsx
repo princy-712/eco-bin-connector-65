@@ -8,15 +8,13 @@ interface FeatureCardProps {
   description: string;
   icon: LucideIcon;
   delay?: number;
-  status?: string;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ 
   title, 
   description, 
   icon: Icon,
-  delay = 0,
-  status = "active"
+  delay = 0 
 }) => {
   return (
     <motion.div
@@ -30,18 +28,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         <div className="w-12 h-12 bg-gradient-to-br from-eco-green to-eco-blue rounded-md flex items-center justify-center mb-4">
           <Icon className="text-white" size={24} />
         </div>
-        <div className="flex justify-between items-center mb-2">
-          <h3 className="text-xl font-bold">{title}</h3>
-          {status && (
-            <span className={`text-xs px-2 py-1 rounded-full ${
-              status === "active" ? "bg-green-100 text-green-800" : 
-              status === "coming soon" ? "bg-yellow-100 text-yellow-800" : 
-              "bg-blue-100 text-blue-800"
-            }`}>
-              {status}
-            </span>
-          )}
-        </div>
+        <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-600 flex-grow">{description}</p>
       </div>
     </motion.div>

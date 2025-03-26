@@ -1,16 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Activity, 
-  BarChart3, 
-  Map, 
-  Bell, 
-  Users, 
-  Lock, 
-  Settings, 
-  MessageSquare
-} from 'lucide-react';
+import { Activity, BarChart3, Map, Bell, Users, Lock, Settings, MessageSquare, Recycle, Shield } from 'lucide-react';
 import PageTransition from '@/components/PageTransition';
 import FeatureCard from '@/components/FeatureCard';
 
@@ -19,44 +10,52 @@ const Features = () => {
     {
       icon: Lock,
       title: 'User Authentication & Authorization',
-      description: 'Secure login system with role-based access control for administrators, collection personnel, and community users.',
-      status: "active"
+      description: 'Secure login system with role-based access control for administrators, collection personnel, and community users.'
     },
     {
       icon: Activity,
       title: 'Real-Time Waste Bin Monitoring',
-      description: 'Live dashboard with color-coded alerts for bin status (Green = Empty, Yellow = Half-Full, Red = Full) with IoT integration.',
-      status: "active"
+      description: 'Live dashboard with color-coded alerts for bin status, fill levels, and collection priorities.'
     },
     {
       icon: BarChart3,
       title: 'Data Visualization & Analytics',
-      description: 'Interactive charts and metrics on waste trends, collection efficiency, and environmental impact with downloadable reports.',
-      status: "active"
+      description: 'Comprehensive charts and metrics on waste trends, collection efficiency, and environmental impact.'
     },
     {
       icon: Bell,
       title: 'User Notifications & Alerts',
-      description: 'Automatic overflow warnings, maintenance reminders, and collection schedule updates via email and SMS.',
-      status: "active"
+      description: 'Automatic overflow warnings, maintenance reminders, and collection schedule updates.'
     },
     {
       icon: Map,
       title: 'Interactive Maps',
-      description: 'Geospatial display for waste bin locations, collection routes, and recycling facilities with real-time tracking.',
-      status: "active"
+      description: 'Geospatial display for waste bin locations, collection routes, and recycling facilities.'
     },
     {
       icon: MessageSquare,
       title: 'User Feedback & Grievance System',
-      description: 'Integrated forms for reporting issues, tracking complaints, and community engagement with resolution timeline.',
-      status: "active"
+      description: 'Integrated forms for reporting issues, tracking complaints, and community engagement.'
     },
     {
       icon: Settings,
       title: 'Admin Control Panel',
-      description: 'Comprehensive user management, system configurations, and performance monitoring tools for administrators.',
-      status: "active"
+      description: 'Comprehensive user management, system configurations, and performance monitoring tools.'
+    },
+    {
+      icon: Recycle,
+      title: 'Renewable Energy Integration',
+      description: 'Connect waste management with clean energy production for sustainable resource recovery.'
+    },
+    {
+      icon: Users,
+      title: 'Community Engagement Tools',
+      description: 'Gamification, educational resources, and incentive programs to encourage recycling participation.'
+    },
+    {
+      icon: Shield,
+      title: 'Data Security & Privacy',
+      description: 'Enterprise-grade encryption and compliance with data protection regulations for user information.'
     }
   ];
 
@@ -73,7 +72,7 @@ const Features = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                Smart Waste Management
+                Powerful Capabilities
               </motion.span>
               
               <motion.h1 
@@ -82,7 +81,7 @@ const Features = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                GreenTech <span className="text-gradient">Features</span>
+                Features That Drive <span className="text-gradient">Sustainable Results</span>
               </motion.h1>
               
               <motion.p 
@@ -107,7 +106,6 @@ const Features = () => {
                   title={feature.title}
                   description={feature.description}
                   icon={feature.icon}
-                  status={feature.status}
                   delay={index * 0.1}
                 />
               ))}
@@ -191,147 +189,6 @@ const Features = () => {
           </div>
         </section>
         
-        {/* Technical Architecture Section */}
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                Technical <span className="text-gradient">Architecture</span>
-              </motion.h2>
-              
-              <motion.p 
-                className="text-lg text-gray-600 max-w-3xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                Our platform is built on a modern, scalable tech stack designed for reliability and performance
-              </motion.p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <motion.div 
-                className="glass-card p-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold mb-3">Frontend</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>React.js</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>Tailwind CSS</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>Framer Motion</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>Recharts</span>
-                  </li>
-                </ul>
-              </motion.div>
-              
-              <motion.div 
-                className="glass-card p-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold mb-3">Backend</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-blue rounded-full"></span>
-                    <span>Node.js</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-blue rounded-full"></span>
-                    <span>Express.js</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-blue rounded-full"></span>
-                    <span>RESTful APIs</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-blue rounded-full"></span>
-                    <span>WebSockets</span>
-                  </li>
-                </ul>
-              </motion.div>
-              
-              <motion.div 
-                className="glass-card p-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold mb-3">Database</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-cyan rounded-full"></span>
-                    <span>PostgreSQL</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-cyan rounded-full"></span>
-                    <span>Time Series DB</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-cyan rounded-full"></span>
-                    <span>GIS Extensions</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-cyan rounded-full"></span>
-                    <span>Redis Cache</span>
-                  </li>
-                </ul>
-              </motion.div>
-              
-              <motion.div 
-                className="glass-card p-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold mb-3">IoT & Integration</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>MQTT Protocol</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>Sensors API</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>Maps Integration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-eco-green rounded-full"></span>
-                    <span>SMS/Email Gateway</span>
-                  </li>
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-        
         {/* Call to Action Section */}
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -356,7 +213,7 @@ const Features = () => {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  Join municipalities, businesses, and communities worldwide who are transforming their waste operations with GreenTech's smart, sustainable solution.
+                  Join municipalities, businesses, and communities worldwide who are transforming their waste operations with our smart, sustainable solution.
                 </motion.p>
                 
                 <motion.div
