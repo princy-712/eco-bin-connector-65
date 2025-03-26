@@ -9,7 +9,13 @@ import {
   Users, 
   Lock, 
   Settings, 
-  MessageSquare
+  MessageSquare,
+  Camera,
+  LineChart,
+  Mail,
+  Phone,
+  Calendar,
+  Clock
 } from 'lucide-react';
 import PageTransition from '@/components/PageTransition';
 import FeatureCard from '@/components/FeatureCard';
@@ -20,42 +26,96 @@ const Features = () => {
       icon: Lock,
       title: 'User Authentication & Authorization',
       description: 'Secure login system with role-based access control for administrators, collection personnel, and community users.',
+      bulletPoints: [
+        'Secure login for different user roles',
+        'Role-based access control to ensure data privacy',
+        'Multi-factor authentication for enhanced security'
+      ],
       status: "active"
     },
     {
       icon: Activity,
       title: 'Real-Time Waste Bin Monitoring',
-      description: 'Live dashboard with color-coded alerts for bin status (Green = Empty, Yellow = Half-Full, Red = Full) with IoT integration.',
+      description: 'Live dashboard with color-coded alerts for bin status with IoT integration for real-time updates.',
+      bulletPoints: [
+        'Green – Empty or low waste',
+        'Yellow – Partially full',
+        'Red – Almost full or overflowing (urgent collection required)',
+        'Animated fill-level graphs updating in real-time',
+        'AI-powered predictive insights for waste patterns'
+      ],
       status: "active"
+    },
+    {
+      icon: Camera,
+      title: 'Camera-Based Monitoring',
+      description: 'Advanced visual monitoring of waste bins with AI-powered waste identification for enhanced recycling.',
+      bulletPoints: [
+        'Live camera feeds to visually monitor bin status',
+        'AI-based waste identification and classification',
+        'Visual validation of overflow conditions',
+        'Object detection for improper disposal'
+      ],
+      status: "coming soon"
     },
     {
       icon: BarChart3,
       title: 'Data Visualization & Analytics',
       description: 'Interactive charts and metrics on waste trends, collection efficiency, and environmental impact with downloadable reports.',
+      bulletPoints: [
+        'Customizable dashboards with key metrics',
+        'Time-series analysis of waste generation patterns',
+        'Collection efficiency reports and benchmarks',
+        'Environmental impact assessments and carbon footprint tracking'
+      ],
       status: "active"
     },
     {
       icon: Bell,
-      title: 'User Notifications & Alerts',
+      title: 'Smart Notifications & Alerts',
       description: 'Automatic overflow warnings, maintenance reminders, and collection schedule updates via email and SMS.',
+      bulletPoints: [
+        'Push notifications for full or overflowing bins',
+        'Scheduled maintenance reminders',
+        'Collection route notifications for personnel',
+        'Customizable alert thresholds and preferences'
+      ],
       status: "active"
     },
     {
       icon: Map,
-      title: 'Interactive Maps',
-      description: 'Geospatial display for waste bin locations, collection routes, and recycling facilities with real-time tracking.',
+      title: 'Interactive Maps & Route Optimization',
+      description: 'Geospatial display for waste bin locations, collection routes, and recycling facilities with AI-powered route optimization.',
+      bulletPoints: [
+        'GPS-enabled bin tracking with status icons',
+        'Dynamic route optimization based on fill levels',
+        'Traffic-aware collection path planning',
+        'Heatmaps for identifying high-waste areas'
+      ],
       status: "active"
     },
     {
       icon: MessageSquare,
       title: 'User Feedback & Grievance System',
       description: 'Integrated forms for reporting issues, tracking complaints, and community engagement with resolution timeline.',
+      bulletPoints: [
+        'User-friendly complaint submission forms',
+        'Real-time status tracking for submitted issues',
+        'Resolution workflow with assigned responsibilities',
+        'Feedback collection for service improvement'
+      ],
       status: "active"
     },
     {
       icon: Settings,
-      title: 'Admin Control Panel',
+      title: 'Admin Panel & System Management',
       description: 'Comprehensive user management, system configurations, and performance monitoring tools for administrators.',
+      bulletPoints: [
+        'User account management and role assignment',
+        'System configuration and threshold settings',
+        'Performance monitoring and reporting tools',
+        'Audit logs and security management'
+      ],
       status: "active"
     }
   ];
@@ -91,7 +151,7 @@ const Features = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Our smart waste management platform combines cutting-edge technology with user-friendly interfaces to optimize collection, promote recycling, and create measurable environmental impact.
+                Our smart waste management platform combines cutting-edge technology with user-friendly interfaces to transform waste into opportunity: smart, sustainable, and efficient.
               </motion.p>
             </div>
           </div>
@@ -108,6 +168,7 @@ const Features = () => {
                   description={feature.description}
                   icon={feature.icon}
                   status={feature.status}
+                  bulletPoints={feature.bulletPoints}
                   delay={index * 0.1}
                 />
               ))}
@@ -115,7 +176,7 @@ const Features = () => {
           </div>
         </section>
         
-        {/* Feature Highlight Section */}
+        {/* Feature Highlight Section - Real-Time Waste Bin Monitoring */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-eco-dark to-eco-dark/95 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -125,9 +186,9 @@ const Features = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Real-Time Waste Collection Dashboard</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">AI-Powered Waste Management Dashboard</h2>
                 <p className="text-lg text-gray-300 mb-6">
-                  Our intuitive dashboard provides a comprehensive overview of your waste management operations with real-time updates, historical data, and predictive analytics.
+                  Our intuitive dashboard transforms waste management with real-time updates, predictive analytics, and AI-driven insights that optimize collection routes and reduce environmental impact.
                 </p>
                 
                 <div className="space-y-6">
@@ -136,21 +197,21 @@ const Features = () => {
                       <Activity className="text-eco-green" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Live Monitoring</h3>
+                      <h3 className="text-xl font-semibold mb-2">Real-Time Monitoring</h3>
                       <p className="text-gray-300">
-                        Track bin fill levels, collection status, and vehicle locations in real-time with automatic refresh and alerts.
+                        Track bin fill levels with color-coded indicators that update instantly, allowing for timely and efficient collection management.
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-eco-blue/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <BarChart3 className="text-eco-blue" size={24} />
+                      <LineChart className="text-eco-blue" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Advanced Analytics</h3>
+                      <h3 className="text-xl font-semibold mb-2">Predictive Analytics</h3>
                       <p className="text-gray-300">
-                        Analyze waste patterns, predict collection needs, and optimize routes with AI-powered data analysis.
+                        Forecast when bins will reach capacity using AI algorithms that analyze historical waste generation patterns.
                       </p>
                     </div>
                   </div>
@@ -160,9 +221,9 @@ const Features = () => {
                       <Map className="text-eco-cyan" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Interactive Maps</h3>
+                      <h3 className="text-xl font-semibold mb-2">Smart Route Optimization</h3>
                       <p className="text-gray-300">
-                        Visualize bin locations, collection routes, and recycling centers with detailed geospatial mapping.
+                        Reduce fuel consumption and emissions with AI-powered collection routes that prioritize bins based on fill levels and location.
                       </p>
                     </div>
                   </div>
@@ -212,7 +273,7 @@ const Features = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Our platform is built on a modern, scalable tech stack designed for reliability and performance
+                Our platform is built on a modern, scalable tech stack designed for reliability, performance, and sustainability
               </motion.p>
             </div>
             

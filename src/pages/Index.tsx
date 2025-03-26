@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, BarChart3, Map, Bell, Users, CheckCircle, Shield, Recycle, Activity } from 'lucide-react';
+import { ChevronRight, BarChart3, Map, Bell, Users, CheckCircle, Shield, Recycle, Activity, Camera, LineChart } from 'lucide-react';
 import Hero from '@/components/Hero';
 import FeatureCard from '@/components/FeatureCard';
 import PageTransition from '@/components/PageTransition';
@@ -19,39 +19,94 @@ const Index = () => {
     {
       icon: Activity,
       title: 'Real-Time Monitoring',
-      description: 'Track waste bin levels and collection status with instant updates and alerts for efficient management.'
+      description: 'Track waste bin levels with color-coded indicators (Green, Yellow, Red) and receive instant alerts for efficient management.'
     },
     {
-      icon: BarChart3,
-      title: 'Data Visualization',
-      description: 'Analyze waste patterns and collection performance with intuitive charts and comprehensive analytics.'
+      icon: LineChart,
+      title: 'AI-Powered Analytics',
+      description: 'Analyze waste patterns and predict collection needs with intelligent algorithms and comprehensive analytics.'
     },
     {
       icon: Map,
-      title: 'Interactive Maps',
-      description: 'View waste bin locations and optimize collection routes with geospatial mapping technology.'
+      title: 'Smart Route Optimization',
+      description: 'Optimize collection routes automatically based on bin fill levels, location, and traffic conditions.'
     },
     {
-      icon: Bell,
-      title: 'Smart Notifications',
-      description: 'Receive timely alerts for bin status, maintenance needs, and collection schedule changes.'
+      icon: Camera,
+      title: 'Visual Monitoring',
+      description: 'Use camera-based monitoring with AI for waste identification and classification to enhance recycling rates.'
     }
   ];
 
   const benefits = [
-    'Reduce collection costs by optimizing routes',
-    'Decrease carbon emissions with efficient scheduling',
-    'Prevent overflow incidents with predictive analysis',
-    'Improve recycling rates with community engagement',
-    'Generate renewable energy from organic waste',
-    'Enhance urban cleanliness and public health'
+    'Reduce collection costs by up to 30% with AI-optimized routes',
+    'Decrease carbon emissions with smart scheduling and less frequent collections',
+    'Prevent overflow incidents with predictive analysis and early warnings',
+    'Improve recycling rates with proper waste classification',
+    'Generate renewable energy from organic waste collection',
+    'Enhance urban cleanliness and public health standards'
   ];
 
   return (
     <PageTransition>
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <Hero />
+        {/* Hero Section with Tagline */}
+        <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center md:text-left md:flex md:items-center md:justify-between">
+              <div className="md:max-w-2xl">
+                <motion.h1 
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <span className="block">Transforming Waste into</span>
+                  <span className="text-gradient">Opportunity</span>
+                </motion.h1>
+                
+                <motion.p 
+                  className="text-xl text-gray-600 mb-8 md:pr-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  GreenTech revolutionizes waste management with smart technology, real-time monitoring, and AI-driven optimization for a cleaner, more sustainable future.
+                </motion.p>
+                
+                <motion.div 
+                  className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <Link to="/contact" className="btn-primary">
+                    Get Started Today
+                  </Link>
+                  <Link to="/features" className="px-6 py-3 text-gray-700 border border-gray-300 rounded-md hover:border-eco-green hover:text-eco-green transition-all duration-300 flex items-center justify-center">
+                    Learn More
+                  </Link>
+                </motion.div>
+              </div>
+              
+              <motion.div 
+                className="mt-12 md:mt-0 md:ml-8 lg:ml-12"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+              >
+                <div className="relative mx-auto max-w-md">
+                  <div className="absolute -inset-1 bg-gradient-to-br from-eco-green/30 to-eco-blue/30 rounded-2xl blur-2xl"></div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                    alt="Smart Waste Management" 
+                    className="relative rounded-2xl shadow-xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
         
         {/* Stats Section */}
         <section className="py-16 bg-gray-50">
@@ -207,9 +262,9 @@ const Index = () => {
               
               <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div className="max-w-2xl">
-                  <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Waste Management?</h2>
+                  <h2 className="text-3xl font-bold mb-4">Join the Smart Waste Revolution</h2>
                   <p className="text-lg text-gray-600">
-                    Join the growing community of municipalities, businesses, and organizations adopting smart waste management for a cleaner, greener future.
+                    Be part of the growing community of municipalities, businesses, and organizations adopting smart waste management for a cleaner, greener future.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">

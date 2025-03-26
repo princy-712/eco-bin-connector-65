@@ -9,6 +9,7 @@ interface FeatureCardProps {
   icon: LucideIcon;
   delay?: number;
   status?: string;
+  bulletPoints?: string[];
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ 
@@ -16,7 +17,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   description, 
   icon: Icon,
   delay = 0,
-  status = "active"
+  status = "active",
+  bulletPoints
 }) => {
   return (
     <motion.div
@@ -42,7 +44,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             </span>
           )}
         </div>
-        <p className="text-gray-600 flex-grow">{description}</p>
+        <p className="text-gray-600 mb-4">{description}</p>
+        
+        {bulletPoints && bulletPoints.length > 0 && (
+          <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
+            {bulletPoints.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </motion.div>
   );

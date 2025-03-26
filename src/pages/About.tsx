@@ -1,68 +1,70 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Recycle, Cpu, Users } from 'lucide-react';
+import { Recycle, Leaf, Zap, Users, Award, Globe, Bolt, TrendingUp } from 'lucide-react';
 import PageTransition from '@/components/PageTransition';
 
 const About = () => {
-  const missionPoints = [
-    'Reduce landfill waste by 50% in partner communities',
-    'Optimize collection routes to minimize carbon emissions',
-    'Promote recycling through community engagement initiatives',
-    'Generate renewable energy from organic waste',
-    'Create transparent, data-driven waste management systems',
-    'Develop smart city solutions for environmental sustainability'
-  ];
-
-  const teamMembers = [
+  const team = [
     {
-      name: 'Sarah Johnson',
-      role: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-      bio: 'Environmental engineer with 15+ years experience in waste management innovation.'
+      name: 'Leadership Team',
+      description: 'Our leadership team brings decades of experience in waste management, sustainability, and technology innovation.',
+      icon: Users
     },
     {
-      name: 'David Chen',
-      role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-      bio: 'IoT specialist focused on creating intelligent sensor networks for urban applications.'
+      name: 'Engineering Experts',
+      description: 'Our engineers combine expertise in IoT, AI, and environmental science to build sustainable solutions.',
+      icon: Bolt
     },
     {
-      name: 'Maya Patel',
-      role: 'Head of Sustainability',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-      bio: 'Environmental policy expert working to implement circular economy principles.'
+      name: 'Sustainability Advocates',
+      description: 'Dedicated environmental specialists ensuring our solutions maximize positive ecological impact.',
+      icon: Leaf
     },
     {
-      name: 'Carlos Martinez',
-      role: 'Community Engagement Director',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-      bio: 'Specializes in developing recycling education programs and community outreach.'
+      name: 'Community Partners',
+      description: 'We work closely with local communities, governments, and businesses to implement effective solutions.',
+      icon: Globe
     }
   ];
 
-  const technologies = [
+  const timeline = [
     {
-      icon: Cpu,
-      title: 'IoT Sensors',
-      description: 'Advanced fill-level sensors with long battery life and wireless connectivity to monitor waste bin status in real-time.'
+      year: '2018',
+      title: 'The Vision',
+      description: 'GreenTech was founded with a vision to transform waste management using smart technology.'
     },
     {
-      icon: Recycle,
-      title: 'Renewable Integration',
-      description: 'Technology that connects waste processing with clean energy generation, creating a circular resource model.'
+      year: '2019',
+      title: 'First Prototype',
+      description: 'Developed and tested our first smart waste bin prototype with basic monitoring capabilities.'
     },
     {
-      icon: Users,
-      title: 'Community Platform',
-      description: 'User-friendly mobile and web applications that engage citizens in sustainable waste management practices.'
+      year: '2020',
+      title: 'Pilot Program',
+      description: 'Launched our first pilot program in partnership with local municipalities, achieving 20% cost reduction.'
+    },
+    {
+      year: '2021',
+      title: 'AI Integration',
+      description: 'Enhanced our platform with AI-powered analytics and predictive capabilities.'
+    },
+    {
+      year: '2022',
+      title: 'National Expansion',
+      description: 'Expanded to multiple cities nationwide, serving over 15 municipalities and numerous businesses.'
+    },
+    {
+      year: '2023',
+      title: 'Present Day',
+      description: 'Continually innovating with advanced features and working toward a global presence.'
     }
   ];
 
   return (
     <PageTransition>
       <main className="min-h-screen pt-24">
-        {/* About Hero Section */}
+        {/* Hero Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
@@ -81,7 +83,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Creating <span className="text-gradient">Sustainable Communities</span> Through Smart Waste Management
+                About <span className="text-gradient">GreenTech</span>
               </motion.h1>
               
               <motion.p 
@@ -90,13 +92,13 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                We're dedicated to transforming waste management through innovative technology, community engagement, and environmental stewardship.
+                We're on a mission to create net-zero waste communities through innovative technology, data-driven insights, and community engagement.
               </motion.p>
             </div>
           </div>
         </section>
         
-        {/* Vision & Mission Section */}
+        {/* Vision & Mission */}
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -107,24 +109,46 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Vision & Mission</h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  We envision a world where waste is viewed as a resource, not a problem. Our mission is to create net-zero waste communities through intelligent technology and active citizen participation.
+                <p className="text-lg text-gray-600 mb-6">
+                  At GreenTech, we envision a world where waste is treated as a resource rather than a burden. Our mission is to enable communities and organizations to manage waste intelligently, minimize environmental impact, and create sustainable ecosystems.
                 </p>
                 
-                <div className="space-y-3">
-                  {missionPoints.map((point, index) => (
-                    <motion.div 
-                      key={index}
-                      className="flex items-start space-x-3"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <CheckCircle className="text-eco-green mt-1 flex-shrink-0" size={22} />
-                      <span className="text-gray-700">{point}</span>
-                    </motion.div>
-                  ))}
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-eco-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Recycle className="text-eco-green" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Zero Waste Future</h3>
+                      <p className="text-gray-600">
+                        We're working toward a future where waste is minimized through intelligent collection, efficient recycling, and circular economy principles.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-eco-blue/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <TrendingUp className="text-eco-blue" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Data-Driven Decisions</h3>
+                      <p className="text-gray-600">
+                        We harness the power of data and AI to transform waste management from a reactive service to a proactive, optimized system.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-eco-cyan/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Zap className="text-eco-cyan" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Renewable Integration</h3>
+                      <p className="text-gray-600">
+                        We promote the integration of waste-to-energy technologies, encouraging renewable energy generation from organic waste.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
               
@@ -132,16 +156,16 @@ const About = () => {
                 className="relative"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
                 <div className="relative mx-auto max-w-md">
-                  <div className="absolute inset-0 bg-gradient-to-br from-eco-green/20 to-eco-blue/20 rounded-xl blur-2xl"></div>
-                  <div className="relative glass-card overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-eco-green/30 to-eco-blue/30 rounded-xl blur-2xl"></div>
+                  <div className="relative rounded-xl overflow-hidden shadow-2xl">
                     <img 
-                      src="https://images.unsplash.com/photo-1536939459926-301728717817?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                      src="https://images.unsplash.com/photo-1563694983071-1a4ba8918ea2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" 
                       alt="Sustainable waste management" 
-                      className="w-full h-auto rounded-xl"
+                      className="w-full h-auto"
                     />
                   </div>
                 </div>
@@ -150,10 +174,10 @@ const About = () => {
           </div>
         </section>
         
-        {/* Technology Section */}
+        {/* Technology Used */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-eco-dark to-eco-dark/95 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-center mb-16">
               <motion.h2 
                 className="text-3xl md:text-4xl font-bold mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -165,36 +189,64 @@ const About = () => {
               </motion.h2>
               
               <motion.p 
-                className="text-lg text-gray-300"
+                className="text-lg text-gray-300 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                We leverage cutting-edge technologies to revolutionize waste management and create sustainable solutions
+              </motion.p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <motion.div 
+                className="glass-card bg-white/5 border-white/10 p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 bg-eco-green/20 rounded-full flex items-center justify-center mb-4">
+                  <Award className="text-eco-green" size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">IoT Sensors</h3>
+                <p className="text-gray-300">
+                  Our smart bins feature ultrasonic fill-level sensors, weight sensors, and environmental monitors that provide real-time data on waste status.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                className="glass-card bg-white/5 border-white/10 p-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                We combine cutting-edge hardware with powerful software to create a comprehensive waste management ecosystem that delivers measurable results.
-              </motion.p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {technologies.map((tech, index) => {
-                const Icon = tech.icon;
-                return (
-                  <motion.div 
-                    key={tech.title}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-12 h-12 bg-gradient-to-br from-eco-green to-eco-blue rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="text-white" size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{tech.title}</h3>
-                    <p className="text-gray-300">{tech.description}</p>
-                  </motion.div>
-                );
-              })}
+                <div className="w-12 h-12 bg-eco-blue/20 rounded-full flex items-center justify-center mb-4">
+                  <Bolt className="text-eco-blue" size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">AI & Machine Learning</h3>
+                <p className="text-gray-300">
+                  Our platform uses advanced algorithms to predict fill rates, optimize collection routes, and identify patterns in waste generation.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                className="glass-card bg-white/5 border-white/10 p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 bg-eco-cyan/20 rounded-full flex items-center justify-center mb-4">
+                  <Leaf className="text-eco-cyan" size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Renewable Energy</h3>
+                <p className="text-gray-300">
+                  Our solutions support waste-to-energy conversion, helping communities generate renewable power from organic waste materials.
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -202,7 +254,7 @@ const About = () => {
         {/* Team Section */}
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-center mb-16">
               <motion.h2 
                 className="text-3xl md:text-4xl font-bold mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -210,85 +262,101 @@ const About = () => {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Meet Our Team
+                Our <span className="text-gradient">Team</span>
               </motion.h2>
               
               <motion.p 
-                className="text-lg text-gray-600"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                Our diverse team of experts is passionate about creating innovative solutions for environmental sustainability.
-              </motion.p>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {teamMembers.map((member, index) => (
-                <motion.div 
-                  key={member.name}
-                  className="glass-card overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="h-64 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-eco-green font-medium mb-3">{member.role}</p>
-                    <p className="text-gray-600">{member.bio}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-        
-        {/* Call to Action Section */}
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                Join Our Mission for a Sustainable Future
-              </motion.h2>
-              
-              <motion.p 
-                className="text-lg text-gray-600 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                Whether you're a municipality, business, or community organization, we're ready to partner with you to transform waste management in your area.
-              </motion.p>
-              
-              <motion.div
+                className="text-lg text-gray-600 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <a 
-                  href="/contact" 
-                  className="btn-primary inline-block"
-                >
-                  Contact Us Today
-                </a>
-              </motion.div>
+                A passionate group of innovators dedicated to solving waste management challenges through technology
+              </motion.p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {team.map((member, index) => {
+                const Icon = member.icon;
+                return (
+                  <motion.div 
+                    key={member.name}
+                    className="glass-card p-6 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="w-16 h-16 bg-gradient-to-br from-eco-green to-eco-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="text-white" size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{member.name}</h3>
+                    <p className="text-gray-600">{member.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+        
+        {/* Timeline */}
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Our <span className="text-gradient">Journey</span>
+              </motion.h2>
+              
+              <motion.p 
+                className="text-lg text-gray-600 max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                From concept to reality — the evolution of GreenTech's smart waste management platform
+              </motion.p>
+            </div>
+            
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-eco-green via-eco-blue to-eco-cyan"></div>
+              
+              {/* Timeline Items */}
+              <div className="relative space-y-12">
+                {timeline.map((item, index) => (
+                  <motion.div 
+                    key={item.year}
+                    className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'pl-8'}`}>
+                      <div className="glass-card p-6">
+                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                        <p className="text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="w-2/12 flex justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-eco-green to-eco-blue rounded-full flex items-center justify-center text-white font-bold">
+                        {item.year}
+                      </div>
+                    </div>
+                    
+                    <div className="w-5/12"></div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
