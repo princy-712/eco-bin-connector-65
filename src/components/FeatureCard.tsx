@@ -10,6 +10,7 @@ interface FeatureCardProps {
   delay?: number;
   status?: string;
   bulletPoints?: string[];
+  implementation?: string[];
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ 
@@ -18,7 +19,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   icon: Icon,
   delay = 0,
   status = "active",
-  bulletPoints
+  bulletPoints,
+  implementation
 }) => {
   return (
     <motion.div
@@ -52,6 +54,22 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
               <li key={index}>{point}</li>
             ))}
           </ul>
+        )}
+
+        {implementation && implementation.length > 0 && (
+          <div className="mt-auto">
+            <h4 className="text-sm font-semibold text-eco-dark mb-2">Implementation</h4>
+            <ul className="list-none space-y-1">
+              {implementation.map((step, index) => (
+                <li key={index} className="flex items-start space-x-2">
+                  <span className="flex-shrink-0 w-5 h-5 bg-eco-green/10 rounded-full flex items-center justify-center text-xs text-eco-green">
+                    {index + 1}
+                  </span>
+                  <span className="text-sm text-gray-600">{step}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </motion.div>

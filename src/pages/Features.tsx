@@ -12,10 +12,12 @@ import {
   MessageSquare,
   Camera,
   LineChart,
-  Mail,
-  Phone,
-  Calendar,
-  Clock
+  Brain,
+  Route,
+  RotateCcw,
+  BarChart,
+  PieChart,
+  Smartphone
 } from 'lucide-react';
 import PageTransition from '@/components/PageTransition';
 import FeatureCard from '@/components/FeatureCard';
@@ -23,13 +25,18 @@ import FeatureCard from '@/components/FeatureCard';
 const Features = () => {
   const features = [
     {
-      icon: Lock,
-      title: 'User Authentication & Authorization',
-      description: 'Secure login system with role-based access control for administrators, collection personnel, and community users.',
+      icon: Brain,
+      title: 'AI-Powered Waste Detection',
+      description: 'Computer vision and machine learning for automatic waste classification and disposal guidance.',
       bulletPoints: [
-        'Secure login for different user roles',
-        'Role-based access control to ensure data privacy',
-        'Multi-factor authentication for enhanced security'
+        'Real-time waste type recognition',
+        'Smart disposal recommendations',
+        'Product-specific recycling information via barcode scanning'
+      ],
+      implementation: [
+        'Computer Vision for waste classification using CNN/YOLO models',
+        'Edge AI deployment on smart bins and mobile devices',
+        'NLP-based chatbot for disposal guidance'
       ],
       status: "active"
     },
@@ -41,10 +48,48 @@ const Features = () => {
         'Green – Empty or low waste',
         'Yellow – Partially full',
         'Red – Almost full or overflowing (urgent collection required)',
-        'Animated fill-level graphs updating in real-time',
-        'AI-powered predictive insights for waste patterns'
+        'Animated fill-level graphs updating in real-time'
+      ],
+      implementation: [
+        'IoT ultrasonic sensors for measuring fill levels',
+        'MQTT/HTTP for real-time data transmission',
+        'Interactive dashboards with D3.js/Chart.js' 
       ],
       status: "active"
+    },
+    {
+      icon: Route,
+      title: 'AI-Powered Route Optimization',
+      description: 'Intelligent collection route planning that minimizes fuel consumption and maximizes collection efficiency.',
+      bulletPoints: [
+        'Prioritized collection based on bin fill levels',
+        'Real-time traffic integration',
+        'Fuel-efficient path calculations',
+        'Automated task assignment to collection personnel'
+      ],
+      implementation: [
+        'Path-finding algorithms (Dijkstra, A*)',
+        'Google Maps API integration',
+        'Task scheduling algorithms for driver assignments'
+      ],
+      status: "active"
+    },
+    {
+      icon: RotateCcw,
+      title: 'Automated Waste Sorting',
+      description: 'Smart bins with built-in sorting mechanisms that automatically separate different waste types.',
+      bulletPoints: [
+        'Material identification via RFID and barcode scanning',
+        'Servo-motor driven compartment sorting',
+        'ML-powered material composition analysis',
+        'Contamination detection and alerts'
+      ],
+      implementation: [
+        'RFID/barcode scanning for material identification',
+        'Servo motors controlled by microcontrollers',
+        'Material classification ML models'
+      ],
+      status: "coming soon"
     },
     {
       icon: Camera,
@@ -56,6 +101,11 @@ const Features = () => {
         'Visual validation of overflow conditions',
         'Object detection for improper disposal'
       ],
+      implementation: [
+        'CCTV/embedded cameras integration',
+        'Object detection models (YOLO, SSD)',
+        'Edge computing for real-time processing'
+      ],
       status: "coming soon"
     },
     {
@@ -66,7 +116,12 @@ const Features = () => {
         'Customizable dashboards with key metrics',
         'Time-series analysis of waste generation patterns',
         'Collection efficiency reports and benchmarks',
-        'Environmental impact assessments and carbon footprint tracking'
+        'Environmental impact assessments'
+      ],
+      implementation: [
+        'Cloud-based data processing (AWS/Firebase/GCP)',
+        'Interactive visualization libraries',
+        'Business intelligence integration'
       ],
       status: "active"
     },
@@ -78,19 +133,64 @@ const Features = () => {
         'Push notifications for full or overflowing bins',
         'Scheduled maintenance reminders',
         'Collection route notifications for personnel',
-        'Customizable alert thresholds and preferences'
+        'Customizable alert thresholds'
+      ],
+      implementation: [
+        'Twilio API for SMS/WhatsApp',
+        'Firebase Cloud Messaging for push notifications',
+        'Email service integration'
       ],
       status: "active"
     },
     {
       icon: Map,
-      title: 'Interactive Maps & Route Optimization',
-      description: 'Geospatial display for waste bin locations, collection routes, and recycling facilities with AI-powered route optimization.',
+      title: 'Interactive Maps & Heatmaps',
+      description: 'Geospatial display for waste bin locations, collection routes, and recycling facilities with waste generation patterns.',
       bulletPoints: [
         'GPS-enabled bin tracking with status icons',
-        'Dynamic route optimization based on fill levels',
-        'Traffic-aware collection path planning',
-        'Heatmaps for identifying high-waste areas'
+        'Dynamic route optimization visualization',
+        'Heatmaps for identifying high-waste areas',
+        'Facility location planning insights'
+      ],
+      implementation: [
+        'Google Maps/Leaflet.js integration',
+        'GeoJSON for spatial data representation',
+        'Heatmap visualization libraries'
+      ],
+      status: "active"
+    },
+    {
+      icon: PieChart,
+      title: 'Predictive Waste Analytics',
+      description: 'Machine learning models that forecast waste generation patterns and optimize collection schedules in advance.',
+      bulletPoints: [
+        'Time-series forecasting of fill rates',
+        'Seasonal trend analysis',
+        'Resource allocation optimization',
+        'Sustainability impact predictions'
+      ],
+      implementation: [
+        'LSTM/ARIMA models for time-series forecasting',
+        'Historical data analysis',
+        'Sustainability metrics calculation'
+      ],
+      status: "coming soon"
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile App Integration',
+      description: 'Comprehensive mobile experience for users, collection personnel, and administrators with real-time updates.',
+      bulletPoints: [
+        'Waste scanning and identification',
+        'Collection schedule tracking',
+        'Real-time alerts and notifications',
+        'User feedback submission'
+      ],
+      implementation: [
+        'React Native/Flutter development',
+        'Camera API integration',
+        'Push notification services',
+        'Cross-platform compatibility'
       ],
       status: "active"
     },
@@ -104,6 +204,11 @@ const Features = () => {
         'Resolution workflow with assigned responsibilities',
         'Feedback collection for service improvement'
       ],
+      implementation: [
+        'Issue tracking system integration',
+        'Automated ticket routing',
+        'Status notification system'
+      ],
       status: "active"
     },
     {
@@ -115,6 +220,11 @@ const Features = () => {
         'System configuration and threshold settings',
         'Performance monitoring and reporting tools',
         'Audit logs and security management'
+      ],
+      implementation: [
+        'Role-based access control system',
+        'Configuration management interface',
+        'System health monitoring dashboard'
       ],
       status: "active"
     }
