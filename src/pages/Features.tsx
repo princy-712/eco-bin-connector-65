@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import PageTransition from '@/components/PageTransition';
 import FeatureCard from '@/components/FeatureCard';
+import AIWasteDetector from '@/components/AIWasteDetector';
 
 const Features = () => {
   const features = [
@@ -267,9 +268,70 @@ const Features = () => {
           </div>
         </section>
         
+        {/* AI Waste Detection Demo */}
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <motion.span 
+                className="inline-block px-3 py-1 text-sm font-medium bg-eco-blue/10 text-eco-blue rounded-full mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Featured Technology
+              </motion.span>
+              
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                AI-Powered Waste Detection
+              </motion.h2>
+              
+              <motion.p 
+                className="text-lg text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                Experience our computer vision technology that automatically identifies waste types and provides proper disposal guidance.
+              </motion.p>
+            </div>
+            
+            <AIWasteDetector />
+          </div>
+        </section>
+        
         {/* Main Features Grid */}
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                All Features
+              </motion.h2>
+              
+              <motion.p 
+                className="text-lg text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                Explore our comprehensive suite of smart waste management tools designed for efficiency, sustainability, and community engagement.
+              </motion.p>
+            </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <FeatureCard
@@ -279,6 +341,7 @@ const Features = () => {
                   icon={feature.icon}
                   status={feature.status}
                   bulletPoints={feature.bulletPoints}
+                  implementation={feature.implementation}
                   delay={index * 0.1}
                 />
               ))}
