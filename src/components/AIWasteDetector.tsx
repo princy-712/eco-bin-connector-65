@@ -1,17 +1,101 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Camera, Trash2, AlertCircle, Leaf, FileBox, Zap } from 'lucide-react';
+import { Camera, Trash2, AlertCircle, Leaf, FileBox, Zap, PanelLeft, Recycle, Lightbulb, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 
-// Simulated waste types the AI can detect
+// Expanded waste types with detailed disposal guidance
 const wasteTypes = [
-  { id: 'plastic', name: 'Plastic', icon: <FileBox className="text-blue-500" />, color: 'bg-blue-500', disposal: 'Recycle in blue bin' },
-  { id: 'organic', name: 'Organic', icon: <Leaf className="text-green-500" />, color: 'bg-green-500', disposal: 'Compost in green bin' },
-  { id: 'paper', name: 'Paper', icon: <FileBox className="text-yellow-500" />, color: 'bg-yellow-500', disposal: 'Recycle in yellow bin' },
-  { id: 'ewaste', name: 'E-Waste', icon: <Zap className="text-purple-500" />, color: 'bg-purple-500', disposal: 'Drop at e-waste collection center' },
-  { id: 'hazardous', name: 'Hazardous', icon: <AlertCircle className="text-red-500" />, color: 'bg-red-500', disposal: 'Take to hazardous waste facility' },
-  { id: 'general', name: 'General Waste', icon: <Trash2 className="text-gray-500" />, color: 'bg-gray-500', disposal: 'Dispose in general waste bin' },
+  { 
+    id: 'plastic', 
+    name: 'Plastic', 
+    icon: <FileBox className="text-blue-500" />, 
+    color: 'bg-blue-500', 
+    disposal: 'Recycle in blue bin',
+    detailedGuidance: [
+      'Rinse containers to remove food residue',
+      'Remove and separate caps if made of different material',
+      'Flatten bottles to save space',
+      'Check for recycling number (1-7) at the bottom'
+    ],
+    acceptedItems: ['Water bottles', 'Milk jugs', 'Shampoo bottles', 'Clean food containers'],
+    nonAcceptedItems: ['Plastic bags', 'Styrofoam', 'Plastic utensils', 'Bubble wrap']
+  },
+  { 
+    id: 'organic', 
+    name: 'Organic', 
+    icon: <Leaf className="text-green-500" />, 
+    color: 'bg-green-500', 
+    disposal: 'Compost in green bin',
+    detailedGuidance: [
+      'Keep material loose - don\'t bag it',
+      'Remove any non-compostable stickers or labels',
+      'Break down larger food items for faster decomposition',
+      'Mix with dry leaves or paper for optimal composting'
+    ],
+    acceptedItems: ['Food scraps', 'Fruit & vegetable peels', 'Coffee grounds', 'Yard trimmings'],
+    nonAcceptedItems: ['Meat & dairy', 'Bioplastics', 'Pet waste', 'Treated wood']
+  },
+  { 
+    id: 'paper', 
+    name: 'Paper', 
+    icon: <FileBox className="text-yellow-500" />, 
+    color: 'bg-yellow-500', 
+    disposal: 'Recycle in yellow bin',
+    detailedGuidance: [
+      'Keep paper clean and dry',
+      'Remove any plastic windows from envelopes',
+      'Break down cardboard boxes to save space',
+      'Shred sensitive documents before recycling'
+    ],
+    acceptedItems: ['Newspaper', 'Office paper', 'Cardboard boxes', 'Paper bags'],
+    nonAcceptedItems: ['Greasy pizza boxes', 'Waxed paper', 'Tissues', 'Paper towels']
+  },
+  { 
+    id: 'ewaste', 
+    name: 'E-Waste', 
+    icon: <Zap className="text-purple-500" />, 
+    color: 'bg-purple-500', 
+    disposal: 'Drop at e-waste collection center',
+    detailedGuidance: [
+      'Back up and wipe data from electronic devices',
+      'Remove batteries if possible (they require separate handling)',
+      'Keep original packaging for transport if available',
+      'Check with your local municipality for special collection days'
+    ],
+    acceptedItems: ['Computers', 'Phones', 'Cables', 'Small appliances'],
+    nonAcceptedItems: ['Large appliances', 'Light bulbs', 'Smoke detectors', 'Medical devices']
+  },
+  { 
+    id: 'hazardous', 
+    name: 'Hazardous', 
+    icon: <AlertCircle className="text-red-500" />, 
+    color: 'bg-red-500', 
+    disposal: 'Take to hazardous waste facility',
+    detailedGuidance: [
+      'Keep in original containers with labels when possible',
+      'Never mix different hazardous materials together',
+      'Transport in sealed containers to prevent spills',
+      'Call ahead to verify acceptance at disposal facility'
+    ],
+    acceptedItems: ['Paint', 'Motor oil', 'Household chemicals', 'Batteries'],
+    nonAcceptedItems: ['Ammunition', 'Explosives', 'Radioactive material', 'Biological waste']
+  },
+  { 
+    id: 'general', 
+    name: 'General Waste', 
+    icon: <Trash2 className="text-gray-500" />, 
+    color: 'bg-gray-500', 
+    disposal: 'Dispose in general waste bin',
+    detailedGuidance: [
+      'Bag waste securely to prevent odors and pests',
+      'Double-check that recyclable items have been removed',
+      'Break down large items to save space',
+      'Follow local garbage collection schedule'
+    ],
+    acceptedItems: ['Broken dishware', 'Used tissues', 'Diapers', 'Non-recyclable packaging'],
+    nonAcceptedItems: ['Recyclables', 'Hazardous waste', 'E-waste', 'Construction debris']
+  },
 ];
 
 const AIWasteDetector: React.FC = () => {
@@ -19,6 +103,7 @@ const AIWasteDetector: React.FC = () => {
   const [detectedWaste, setDetectedWaste] = useState<typeof wasteTypes[0] | null>(null);
   const [confidence, setConfidence] = useState(0);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [showDetailedGuidance, setShowDetailedGuidance] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [cameraActive, setCameraActive] = useState(false);
@@ -97,7 +182,12 @@ const AIWasteDetector: React.FC = () => {
       setCameraActive(false);
       setDetectedWaste(null);
       setCapturedImage(null);
+      setShowDetailedGuidance(false);
     }
+  };
+
+  const toggleDetailedGuidance = () => {
+    setShowDetailedGuidance(!showDetailedGuidance);
   };
 
   useEffect(() => {
@@ -216,11 +306,99 @@ const AIWasteDetector: React.FC = () => {
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold">Disposal Guidance</h3>
-                <p className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                  {detectedWaste.disposal}
-                </p>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-semibold">Disposal Guidance</h3>
+                  <button 
+                    onClick={toggleDetailedGuidance} 
+                    className="flex items-center text-sm text-eco-green gap-1 hover:underline"
+                  >
+                    {showDetailedGuidance ? (
+                      <>
+                        <span>Simple view</span>
+                        <PanelLeft size={14} />
+                      </>
+                    ) : (
+                      <>
+                        <span>Detailed view</span>
+                        <Lightbulb size={14} />
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {showDetailedGuidance ? (
+                  <div className="space-y-4">
+                    <div className={`p-4 rounded-lg ${detectedWaste.color} bg-opacity-5 border border-opacity-10 ${detectedWaste.color.replace('bg-', 'border-')}`}>
+                      <div className="flex items-center mb-2">
+                        <Recycle className="text-eco-green mr-2" size={18} />
+                        <h4 className="font-semibold">Disposal Instructions</h4>
+                      </div>
+                      <p className="font-medium mb-2 text-eco-dark">{detectedWaste.disposal}</p>
+                      <ul className="space-y-1">
+                        {detectedWaste.detailedGuidance.map((instruction, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="text-eco-green mr-2">•</span>
+                            <span className="text-sm text-gray-700">{instruction}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="p-4 rounded-lg bg-green-50 border border-green-100">
+                        <h4 className="font-semibold text-green-700 mb-2 flex items-center">
+                          <span className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-2">
+                            <span className="text-green-700">✓</span>
+                          </span>
+                          Accepted Items
+                        </h4>
+                        <ul className="space-y-1">
+                          {detectedWaste.acceptedItems.map((item, index) => (
+                            <li key={index} className="text-sm text-gray-700 flex items-start">
+                              <span className="text-green-500 mr-2">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="p-4 rounded-lg bg-red-50 border border-red-100">
+                        <h4 className="font-semibold text-red-700 mb-2 flex items-center">
+                          <span className="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-2">
+                            <span className="text-red-700">✕</span>
+                          </span>
+                          Non-Accepted Items
+                        </h4>
+                        <ul className="space-y-1">
+                          {detectedWaste.nonAcceptedItems.map((item, index) => (
+                            <li key={index} className="text-sm text-gray-700 flex items-start">
+                              <span className="text-red-500 mr-2">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 rounded-lg bg-blue-50 border border-blue-100">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold text-blue-700 flex items-center">
+                          <ExternalLink className="mr-2" size={16} />
+                          Additional Resources
+                        </h4>
+                      </div>
+                      <p className="text-sm text-gray-700">
+                        Find local recycling centers and waste disposal facilities by checking your 
+                        municipal website or download the GreenTech mobile app for real-time guidance.
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    {detectedWaste.disposal}
+                  </p>
+                )}
               </div>
               
               <div className="space-y-2">
