@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { MapPin, Mail, Phone, Send, CheckCircle, AlertCircle, HelpCircle } from 'lucide-react';
 import PageTransition from '@/components/PageTransition';
 
 const Contact = () => {
@@ -62,6 +62,25 @@ const Contact = () => {
       details: '📍 Jabalpur Engineering College, Gokalpur, Jabalpur, Madhya Pradesh 482011',
       action: 'https://maps.google.com/?q=Jabalpur+Engineering+College',
       actionText: 'Get directions'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How does the smart bin monitoring system work?",
+      answer: "Our smart bins are equipped with ultrasonic sensors that measure fill levels in real-time. This data is transmitted to our cloud platform, where it's analyzed and visualized on your dashboard, showing color-coded statuses for easy monitoring."
+    },
+    {
+      question: "How can GreenTech help reduce waste management costs?",
+      answer: "By optimizing collection routes based on actual fill levels, GreenTech reduces unnecessary collections, saves fuel, and minimizes vehicle wear. Our clients typically see cost reductions of 25-30% after implementation."
+    },
+    {
+      question: "Is GreenTech suitable for my organization?",
+      answer: "GreenTech is adaptable for various entities including municipalities, businesses, campuses, and residential communities. We offer customizable solutions that scale according to your needs, whether you manage 10 bins or 10,000."
+    },
+    {
+      question: "What kind of support does GreenTech provide?",
+      answer: "We offer comprehensive technical support, regular system updates, training for your team, and dedicated account management to ensure you get the most out of our smart waste management solutions."
     }
   ];
 
@@ -262,10 +281,20 @@ const Contact = () => {
           </div>
         </section>
         
-        {/* FAQ Section */}
+        {/* Support Section / FAQ */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
+              <motion.div
+                className="w-16 h-16 bg-gradient-to-br from-eco-green to-eco-blue rounded-full flex items-center justify-center mx-auto mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <HelpCircle className="text-white" size={32} />
+              </motion.div>
+              
               <motion.h2 
                 className="text-3xl md:text-4xl font-bold mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -273,7 +302,7 @@ const Contact = () => {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Frequently Asked <span className="text-gradient">Questions</span>
+                Support <span className="text-gradient">Center</span>
               </motion.h2>
               
               <motion.p 
@@ -289,45 +318,34 @@ const Contact = () => {
             
             <div className="max-w-3xl mx-auto">
               <div className="space-y-6">
-                <motion.div 
-                  className="glass-card p-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-xl font-bold mb-2">How does the smart bin monitoring system work?</h3>
-                  <p className="text-gray-600">
-                    Our smart bins are equipped with ultrasonic sensors that measure fill levels in real-time. This data is transmitted to our cloud platform, where it's analyzed and visualized on your dashboard, showing color-coded statuses (green, yellow, red) for easy monitoring.
-                  </p>
-                </motion.div>
-                
-                <motion.div 
-                  className="glass-card p-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-xl font-bold mb-2">How can GreenTech help reduce waste management costs?</h3>
-                  <p className="text-gray-600">
-                    By optimizing collection routes based on actual fill levels, GreenTech reduces unnecessary collections, saves fuel, and minimizes vehicle wear. Our clients typically see cost reductions of 25-30% after implementation.
-                  </p>
-                </motion.div>
-                
-                <motion.div 
-                  className="glass-card p-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-xl font-bold mb-2">Is GreenTech suitable for my organization?</h3>
-                  <p className="text-gray-600">
-                    GreenTech is adaptable for various entities including municipalities, businesses, campuses, and residential communities. We offer customizable solutions that scale according to your needs, whether you manage 10 bins or 10,000.
-                  </p>
-                </motion.div>
+                {faqs.map((faq, index) => (
+                  <motion.div 
+                    key={index}
+                    className="glass-card p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
+                    <p className="text-gray-600">{faq.answer}</p>
+                  </motion.div>
+                ))}
               </div>
+              
+              <motion.div 
+                className="text-center mt-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-gray-600 mb-4">Didn't find what you're looking for?</p>
+                <a href="mailto:greentechfor21@gmail.com" className="btn-primary inline-flex items-center">
+                  <Mail className="mr-2" size={18} />
+                  Email Support
+                </a>
+              </motion.div>
             </div>
           </div>
         </section>

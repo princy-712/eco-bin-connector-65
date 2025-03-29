@@ -11,9 +11,9 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-eco-green to-eco-blue rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SM</span>
+                <span className="text-white font-bold text-lg">GT</span>
               </div>
-              <span className="text-xl font-bold text-white">EcoTrack</span>
+              <span className="text-xl font-bold text-white">GreenTech</span>
             </Link>
             <p className="text-gray-300 max-w-xs">
               Revolutionizing waste management through smart technology and community engagement for a sustainable future.
@@ -65,10 +65,10 @@ const Footer: React.FC = () => {
                 <a href="#" className="text-gray-300 hover:text-eco-green transition-colors">Real-Time Monitoring</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-eco-green transition-colors">Data Visualization</a>
+                <a href="#" className="text-gray-300 hover:text-eco-green transition-colors">AI-Powered Analytics</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-eco-green transition-colors">Interactive Maps</a>
+                <a href="#" className="text-gray-300 hover:text-eco-green transition-colors">Smart Route Optimization</a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-eco-green transition-colors">User Notifications</a>
@@ -87,22 +87,22 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="text-eco-green mt-1 flex-shrink-0" />
-                <span className="text-gray-300">123 Eco Street, Green City, 10001</span>
+                <span className="text-gray-300">📍 Jabalpur Engineering College, Gokalpur, Jabalpur, Madhya Pradesh 482011</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="text-eco-green flex-shrink-0" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">📞 9340749064</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="text-eco-green flex-shrink-0" />
-                <span className="text-gray-300">info@ecotrack.com</span>
+                <span className="text-gray-300">✉️ greentechfor21@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} EcoTrack. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} GreenTech. All rights reserved.</p>
         </div>
       </div>
     </footer>

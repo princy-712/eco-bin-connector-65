@@ -7,57 +7,19 @@ import PageTransition from '@/components/PageTransition';
 const About = () => {
   const team = [
     {
-      name: 'Leadership Team',
-      description: 'Our leadership team brings decades of experience in waste management, sustainability, and technology innovation.',
-      icon: Users
+      name: 'Princy Sahu',
+      role: 'Team Lead',
+      description: 'Leading our initiatives with innovative solutions for waste management challenges.'
     },
     {
-      name: 'Engineering Experts',
-      description: 'Our engineers combine expertise in IoT, AI, and environmental science to build sustainable solutions.',
-      icon: Bolt
+      name: 'Sneha Chouksey',
+      role: 'Technical Expert',
+      description: 'Developing robust engineering solutions for our smart waste management systems.'
     },
     {
-      name: 'Sustainability Advocates',
-      description: 'Dedicated environmental specialists ensuring our solutions maximize positive ecological impact.',
-      icon: Leaf
-    },
-    {
-      name: 'Community Partners',
-      description: 'We work closely with local communities, governments, and businesses to implement effective solutions.',
-      icon: Globe
-    }
-  ];
-
-  const timeline = [
-    {
-      year: '2018',
-      title: 'The Vision',
-      description: 'GreenTech was founded with a vision to transform waste management using smart technology.'
-    },
-    {
-      year: '2019',
-      title: 'First Prototype',
-      description: 'Developed and tested our first smart waste bin prototype with basic monitoring capabilities.'
-    },
-    {
-      year: '2020',
-      title: 'Pilot Program',
-      description: 'Launched our first pilot program in partnership with local municipalities, achieving 20% cost reduction.'
-    },
-    {
-      year: '2021',
-      title: 'AI Integration',
-      description: 'Enhanced our platform with AI-powered analytics and predictive capabilities.'
-    },
-    {
-      year: '2022',
-      title: 'National Expansion',
-      description: 'Expanded to multiple cities nationwide, serving over 15 municipalities and numerous businesses.'
-    },
-    {
-      year: '2023',
-      title: 'Present Day',
-      description: 'Continually innovating with advanced features and working toward a global presence.'
+      name: 'Aishwarya Patel',
+      role: 'Sustainability Specialist',
+      description: 'Ensuring our solutions maximize positive environmental impact and community benefits.'
     }
   ];
 
@@ -262,7 +224,7 @@ const About = () => {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Our <span className="text-gradient">Team</span>
+                Meet Our <span className="text-gradient">Team</span>
               </motion.h2>
               
               <motion.p 
@@ -276,87 +238,23 @@ const About = () => {
               </motion.p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => {
-                const Icon = member.icon;
-                return (
-                  <motion.div 
-                    key={member.name}
-                    className="glass-card p-6 text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-16 h-16 bg-gradient-to-br from-eco-green to-eco-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="text-white" size={32} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{member.name}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {team.map((member, index) => (
+                <motion.div 
+                  key={member.name}
+                  className="glass-card p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                    <p className="text-eco-green font-medium mb-4">{member.role}</p>
                     <p className="text-gray-600">{member.description}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-        
-        {/* Timeline */}
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                Our <span className="text-gradient">Journey</span>
-              </motion.h2>
-              
-              <motion.p 
-                className="text-lg text-gray-600 max-w-3xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                From concept to reality — the evolution of GreenTech's smart waste management platform
-              </motion.p>
-            </div>
-            
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-eco-green via-eco-blue to-eco-cyan"></div>
-              
-              {/* Timeline Items */}
-              <div className="relative space-y-12">
-                {timeline.map((item, index) => (
-                  <motion.div 
-                    key={item.year}
-                    className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'pl-8'}`}>
-                      <div className="glass-card p-6">
-                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="w-2/12 flex justify-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-eco-green to-eco-blue rounded-full flex items-center justify-center text-white font-bold">
-                        {item.year}
-                      </div>
-                    </div>
-                    
-                    <div className="w-5/12"></div>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
