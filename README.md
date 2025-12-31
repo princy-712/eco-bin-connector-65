@@ -1,5 +1,7 @@
 # ♻️ AI Waste Detector – Eco-Bin Connector
 
+**Live Demo link** [green-tech-topaz.vercel.app](https://green-tech-topaz.vercel.app)
+
 AI Waste Detector is an intelligent waste classification system that leverages AI to identify various types of waste. The project features a React + TypeScript frontend and a Flask backend that processes waste images using a trained AI model, promoting efficient waste management.
 
 
