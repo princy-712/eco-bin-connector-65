@@ -1,11 +1,10 @@
-
 # ♻️ AI Waste Detector – Eco-Bin Connector
 
 AI Waste Detector is an intelligent waste classification system that leverages AI to identify various types of waste. The project features a React + TypeScript frontend and a Flask backend that processes waste images using a trained AI model, promoting efficient waste management.
 
 
 
-# Hi, I'm Princy! 👋
+
 AI Waste Detector – Eco-Bin Collector is a smart waste classification system designed to promote eco-friendly habits through the power of artificial intelligence. It allows users to upload images of waste items, which are then analyzed by a trained AI model to determine their category—such as plastic, e-waste, organic, paper, hazardous, or general waste.
 Built with a modern tech stack including React + TypeScript on the frontend and Flask + Python on the backend, this project provides an intuitive and responsive user experience. The goal is to assist in proper waste segregation, reduce environmental pollution, and support sustainable living with the help of intelligent automation.
 
@@ -346,5 +345,24 @@ Start the server
 
 ```bash
   npm run start
+
 ```
+<img width="1470" height="837" alt="Screenshot 2025-12-31 at 10 54 45 PM" src="https://github.com/user-attachments/assets/57193592-6d48-48fa-8b26-7603f6511372" />
+<img width="1470" height="839" alt="Screenshot 2025-12-31 at 10 55 26 PM" src="https://github.com/user-attachments/assets/1d466422-9153-41e5-9989-151471232631" />
+<img width="1470" height="840" alt="Screenshot 2025-12-31 at 10 56 02 PM" src="https://github.com/user-attachments/assets/dde8a553-80e8-4727-9b9b-39fe7b110a96" />
+<img width="1470" height="838" alt="Screenshot 2025-12-31 at 10 57 20 PM" src="https://github.com/user-attachments/assets/feee36b9-f7d0-4e9b-aa99-cde31a9248fb" />
+<img width="1470" height="838" alt="Screenshot 2025-12-31 at 10 58 19 PM" src="https://github.com/user-attachments/assets/557f2102-5afe-4ca1-a071-48ac3425095c" />
+
+## Tested (Result)
+![result_WhatsApp_Image_2025-03-30_at_16 01 11_18bca005](https://github.com/user-attachments/assets/403ffb4c-98c1-47dc-9f88-c183c4ce76d8)
+
+
+
+
+
+
+
+
+
+
 
